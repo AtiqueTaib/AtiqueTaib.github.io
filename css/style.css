@@ -10,6 +10,72 @@
   --text-muted: #555;
   --radius: 16px;
 }
+/* =========================
+   Hero Banner – STEP 1 Layout
+   ========================= */
+
+.hero-banner {
+  width: 100%;
+  background-color: #1f3a5f; /* temporary solid color */
+  padding: 120px 0;
+  color: #ffffff;
+}
+
+.hero-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 80px;
+}
+
+/* LEFT SIDE */
+.hero-left {
+  max-width: 520px;
+}
+
+.hero-logo {
+  width: 90px;
+  margin-bottom: 30px;
+}
+
+.hero-left h1 {
+  font-size: 3.2rem;
+  line-height: 1.1;
+  margin-bottom: 12px;
+  color: #ffffff;
+}
+
+.hero-left .highlight {
+  color: #4da3ff; /* temporary accent */
+}
+
+.hero-tagline {
+  font-style: italic;
+  font-size: 1.1rem;
+  color: #d6e4f2;
+  margin-bottom: 28px;
+}
+
+.hero-button {
+  display: inline-block;
+  padding: 12px 26px;
+  background-color: #ffffff;
+  color: #1f3a5f;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 999px;
+}
+
+/* RIGHT SIDE */
+.hero-right {
+  max-width: 420px;
+}
+
+.hero-right p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #e9eef4;
+}
 
 /* =========================
    Reset & Base
