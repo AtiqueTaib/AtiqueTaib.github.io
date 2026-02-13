@@ -17,7 +17,7 @@
 .hero-banner {
   width: 100%;
   background-color: #1f3a5f; /* temporary solid color */
-  padding: 120px 0;
+  padding: 90px 0;
   color: #ffffff;
 }
 
@@ -26,17 +26,18 @@
   align-items: center;
   justify-content: space-between;
   gap: 80px;
+  padding-left: 80px;
 }
 
 /* LEFT SIDE */
 .hero-left {
   max-width: 520px;
-  padding-left: 60px; /* intentional visual offset */
+  padding-left: 0px; /* intentional visual offset */
 }
 
 .hero-logo {
   width: 90px;
-  margin-bottom: 48px;
+  margin-bottom: 36px;
 }
 
 .hero-left h1 {
@@ -44,6 +45,7 @@
   line-height: 1.1;
   margin-bottom: 12px;
   color: #ffffff;
+  white-space: nowrap;
 }
 
 .hero-left .highlight {
