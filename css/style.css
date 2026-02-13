@@ -31,11 +31,12 @@
 /* LEFT SIDE */
 .hero-left {
   max-width: 520px;
+  padding-left: 60px; /* intentional visual offset */
 }
 
 .hero-logo {
   width: 90px;
-  margin-bottom: 30px;
+  margin-bottom: 48px;
 }
 
 .hero-left h1 {
@@ -54,6 +55,7 @@
   font-size: 1.1rem;
   color: #d6e4f2;
   margin-bottom: 28px;
+  padding-left: 6px;
 }
 
 .hero-button {
@@ -153,7 +155,52 @@ p {
 .nav-links a:hover {
   opacity: 0.85;
 }
+/* =========================
+   Dropdown Navigation
+   ========================= */
 
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 12px 0;
+  min-width: 180px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.25s ease;
+  z-index: 999;
+}
+
+.dropdown-menu li {
+  list-style: none;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 10px 20px;
+  color: var(--primary);
+  font-size: 0.95rem;
+  text-decoration: none;
+}
+
+.dropdown-menu a:hover {
+  background-color: #f2f6fb;
+}
+
+/* Hover trigger */
+.dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
 /* =========================
 /* =========================
    Wix-style Entrance Animations
