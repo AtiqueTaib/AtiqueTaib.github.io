@@ -9,38 +9,41 @@
 </head>
 
 <script>
-const slides = document.querySelectorAll('.service-slide');
-const dotsContainer = document.querySelector('.slider-dots');
-const prev = document.querySelector('.slide-arrow.left');
-const next = document.querySelector('.slide-arrow.right');
+document.addEventListener("DOMContentLoaded", function () {
 
-let current = 0;
+  const slides = document.querySelectorAll('.service-slide');
+  const dotsContainer = document.querySelector('.slider-dots');
+  const prev = document.querySelector('.slide-arrow.left');
+  const next = document.querySelector('.slide-arrow.right');
 
-function showSlide(index) {
-  slides.forEach((slide, i) => {
-    slide.classList.toggle('active', i === index);
-    dotsContainer.children[i].classList.toggle('active', i === index);
+  let current = 0;
+
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.classList.toggle('active', i === index);
+      dotsContainer.children[i].classList.toggle('active', i === index);
+    });
+    current = index;
+  }
+
+  slides.forEach((_, i) => {
+    const dot = document.createElement('span');
+    dot.addEventListener('click', () => showSlide(i));
+    dotsContainer.appendChild(dot);
   });
-  current = index;
-}
 
-slides.forEach((_, i) => {
-  const dot = document.createElement('span');
-  dot.addEventListener('click', () => showSlide(i));
-  dotsContainer.appendChild(dot);
+  prev.addEventListener('click', () => {
+    showSlide((current - 1 + slides.length) % slides.length);
+  });
+
+  next.addEventListener('click', () => {
+    showSlide((current + 1) % slides.length);
+  });
+
+  showSlide(0);
+
 });
-
-prev.addEventListener('click', () => {
-  showSlide((current - 1 + slides.length) % slides.length);
-});
-
-next.addEventListener('click', () => {
-  showSlide((current + 1) % slides.length);
-});
-
-showSlide(0);
 </script>
-
 
 <body>
 
@@ -92,8 +95,10 @@ showSlide(0);
         to keep complex construction projects moving safely and efficiently.
       </p>
     </div>
-
   </div>
+
+  <div class="hero-arrow">&#10094;</div>
+
 </section>
 
   <section class="about-us" id="about">
