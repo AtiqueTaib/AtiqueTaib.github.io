@@ -7,6 +7,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="css/style.css">
 </head>
+
+<script>
+const slides = document.querySelectorAll('.service-slide');
+const dotsContainer = document.querySelector('.slider-dots');
+const prev = document.querySelector('.slide-arrow.left');
+const next = document.querySelector('.slide-arrow.right');
+
+let current = 0;
+
+function showSlide(index) {
+  slides.forEach((slide, i) => {
+    slide.classList.toggle('active', i === index);
+    dotsContainer.children[i].classList.toggle('active', i === index);
+  });
+  current = index;
+}
+
+slides.forEach((_, i) => {
+  const dot = document.createElement('span');
+  dot.addEventListener('click', () => showSlide(i));
+  dotsContainer.appendChild(dot);
+});
+
+prev.addEventListener('click', () => {
+  showSlide((current - 1 + slides.length) % slides.length);
+});
+
+next.addEventListener('click', () => {
+  showSlide((current + 1) % slides.length);
+});
+
+showSlide(0);
+</script>
+
+
 <body>
 
 <header class="site-header">
@@ -65,7 +100,7 @@
   <div class="container about-inner">
 
     <div class="about-text">
-      <h2>About Us</h2>
+      <h2>About <span class="highlight-word">Us</span></h2>
 
       <p>
         On-Site Engineering provides hands-on site engineering, quality control,
@@ -85,6 +120,140 @@
 
   </div>
 </section>
+
+<section class="services" id="services">
+  <div class="container">
+
+    <h2 class="services-heading">Services</h2>
+
+    <div class="services-slider">
+
+      <button class="slide-arrow left">&#10094;</button>
+
+      <div class="slides">
+
+        <!-- SLIDE 1 -->
+        <div class="service-slide active">
+          <div class="service-content">
+            <div class="service-image">
+              <img src="images/service-supervision.jpg" alt="Site Supervision">
+            </div>
+            <div class="service-text">
+              <h3>Site Supervision & Technical Support</h3>
+              <p>
+                Hands-on site supervision to ensure works are built right the first time,
+                with clear technical guidance and fast resolution of on-site issues.
+              </p>
+              <ul>
+                <li>Verification against drawings and specifications</li>
+                <li>Technical support for contractors</li>
+                <li>Early identification of buildability challenges</li>
+                <li>Stakeholder coordination</li>
+                <li>Ongoing quality and safety support</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- SLIDE 2 -->
+        <div class="service-slide">
+          <div class="service-content">
+            <div class="service-image">
+              <img src="images/service-quality.jpg" alt="Quality Control">
+            </div>
+            <div class="service-text">
+              <h3>Quality Control & Inspections</h3>
+              <p>
+                Proactive inspections and quality checks to prevent defects,
+                reduce rework, and maintain compliance.
+              </p>
+              <ul>
+                <li>Inspection and Test Plans (ITPs)</li>
+                <li>Identification of quality risks</li>
+                <li>Non-conformance management</li>
+                <li>Documentation and certification support</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- SLIDE 3 -->
+        <div class="service-slide">
+          <div class="service-content">
+            <div class="service-image">
+              <img src="images/service-coordination.jpg" alt="Services Coordination">
+            </div>
+            <div class="service-text">
+              <h3>Building Services Co-ordination</h3>
+              <p>
+                Ensuring services are integrated efficiently to support smooth installation
+                and coordinated sequencing across trades.
+              </p>
+              <ul>
+                <li>Services layout review</li>
+                <li>Clash detection and resolution</li>
+                <li>Shop drawing support</li>
+                <li>Installation sequencing coordination</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- SLIDE 4 -->
+        <div class="service-slide">
+          <div class="service-content">
+            <div class="service-image">
+              <img src="images/service-qaqc.jpg" alt="QA QC">
+            </div>
+            <div class="service-text">
+              <h3>Quality Management (QA/QC)</h3>
+              <p>
+                Structured systems and defect management to maintain accountability
+                and project confidence.
+              </p>
+              <ul>
+                <li>QA/QC plan development</li>
+                <li>Inspection management</li>
+                <li>Defect tracking</li>
+                <li>Audit and handover support</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- SLIDE 5 -->
+        <div class="service-slide">
+          <div class="service-content">
+            <div class="service-image">
+              <img src="images/service-admin.jpg" alt="Administrative Support">
+            </div>
+            <div class="service-text">
+              <h3>Administrative Support & Site Management</h3>
+              <p>
+                Integrated administration and document control to keep communication
+                organised and projects on track.
+              </p>
+              <ul>
+                <li>Document control and registers</li>
+                <li>Meeting coordination</li>
+                <li>Tracking approvals and responses</li>
+                <li>Handover documentation support</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <button class="slide-arrow right">&#10095;</button>
+
+    </div>
+
+    <div class="slider-dots"></div>
+
+  </div>
+</section>
+
   
 </main>
 
@@ -94,3 +263,5 @@
 
 </body>
 </html>
+
+
