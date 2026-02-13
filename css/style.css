@@ -16,8 +16,13 @@
 
 .hero-banner {
   width: 100%;
-  background-color: #1f3a5f; /* temporary solid color */
-  padding: 90px 0;
+  background: linear-gradient(
+  90deg,
+  #1f3a5f 0%,
+  #2f5f94 55%,
+  #4da3ff 100%
+);
+  padding: 60px 0;
   color: #ffffff;
 }
 
@@ -26,7 +31,12 @@
   align-items: center;
   justify-content: space-between;
   gap: 80px;
-  padding-left: 80px;
+}
+
+.hero-banner .container {
+  margin-left: 0;
+  margin-right: auto;
+  padding-left: 120px; /* controls how far from left edge */
 }
 
 /* LEFT SIDE */
@@ -291,5 +301,7 @@ p {
 .about-image img {
   width: 100%;
   border-radius: 18px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
 }
+
 
