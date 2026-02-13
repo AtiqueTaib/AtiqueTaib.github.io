@@ -21,6 +21,7 @@
   #1f3a5f 0%,
   #2f5f94 55%,
   #4da3ff 100%
+  position: relative;
 );
   padding: 60px 0;
   color: #ffffff;
@@ -82,7 +83,7 @@
 
 /* RIGHT SIDE */
 .hero-right {
-  max-width: 420px;
+  max-width: 500px;
 }
 
 .hero-right p {
@@ -90,6 +91,17 @@
   line-height: 1.7;
   color: #e9eef4;
 }
+
+.hero-arrow {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 42px;
+  color: rgba(255,255,255,0.35);
+  pointer-events: none;
+}
+
 
 /* =========================
    Reset & Base
