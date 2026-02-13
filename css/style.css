@@ -84,6 +84,7 @@
 /* RIGHT SIDE */
 .hero-right {
   max-width: 500px;
+  padding-left: 40px;
 }
 
 .hero-right p {
@@ -94,14 +95,19 @@
 
 .hero-arrow {
   position: absolute;
-  left: 20px;
-  top: 50%;
-  transform: translateY(-50%);
+  left: 60px;
+  bottom: 36px;
   font-size: 42px;
-  color: rgba(255,255,255,0.35);
+  color: rgba(255,255,255,0.6);
   pointer-events: none;
+  z-index: 20;
+  animation: bounce 2s infinite;
 }
 
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
 
 /* =========================
    Reset & Base
