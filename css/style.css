@@ -176,6 +176,15 @@ ul { margin: 0; padding: 0; }
   overflow: hidden;
 }
 
+/* Hero-only container alignment (Wix-style left anchor) */
+.hero-banner .container{
+  max-width: 1400px;
+  margin-left: 0;
+  margin-right: auto;
+  padding-left: 90px;   /* adjust this value to fine-tune position */
+  padding-right: 28px;
+}
+
 .hero-inner {
   display: grid;
   grid-template-columns: 1.4fr 0.6fr; /* push right column further right */
@@ -206,6 +215,16 @@ ul { margin: 0; padding: 0; }
   color: #d6e4f2;
   margin-bottom: 26px;
   padding-left: 2px;
+}
+
+.hero-tagline{
+  font-style: normal;      /* remove italic like Wix */
+  font-weight: 800;        /* bold */
+  letter-spacing: -0.2px;
+}
+
+.tag-accent{
+  color: var(--accent);    /* blue word */
 }
 
 .hero-button {
