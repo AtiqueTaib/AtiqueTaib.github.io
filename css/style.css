@@ -268,15 +268,14 @@ ul { margin: 0; padding: 0; }
 
 /* RIGHT */
 .hero-right {
-  max-width: 520px;
+  max-width: 600px;
   padding-left: 60px;
 }
 
 .hero-right p {
   font-size: 1.05rem;
-  line-height: 1.55; /* slightly tighter */
+  line-height: 1.5; /* slightly tighter */
   color: #e9eef4;
-  max-width: 380px; /* controls wrapping */
 }
 
 /* =========================
