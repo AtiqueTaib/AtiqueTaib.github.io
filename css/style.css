@@ -19,6 +19,24 @@
 }
 
 /* =========================
+   Font Presets (toggle on <body>)
+   ========================= */
+
+/* Default fallbacks (if no class set) */
+body { font-family: "Inter", "Segoe UI", Arial, sans-serif; }
+
+body.font-1 { --hero-h: "Poppins", sans-serif;        --hero-p: "Inter", sans-serif; }
+body.font-2 { --hero-h: "Montserrat", sans-serif;     --hero-p: "Source Sans 3", sans-serif; }
+body.font-3 { --hero-h: "Raleway", sans-serif;        --hero-p: "Nunito Sans", sans-serif; }
+body.font-4 { --hero-h: "Playfair Display", serif;    --hero-p: "Inter", sans-serif; }
+
+/* Apply fonts to hero only */
+.hero-left h1 { font-family: var(--hero-h); }
+.hero-right p { font-family: var(--hero-p); }
+.hero-tagline { font-family: var(--hero-p); }
+
+
+/* =========================
    Reset & Base
    ========================= */
 
@@ -205,6 +223,11 @@ ul { margin: 0; padding: 0; }
   line-height: 1.08;
   margin-bottom: 12px;
   color: #ffffff;
+}
+
+.hero-left h1{
+  font-weight: 800;
+  letter-spacing: -0.6px;
 }
 
 .hero-left .highlight { color: var(--accent); }
