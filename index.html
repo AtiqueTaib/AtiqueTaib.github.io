@@ -3,270 +3,293 @@
 <head>
   <meta charset="UTF-8" />
   <title>On-Site Engineering</title>
+
   <meta name="description" content="On-Site Engineering provides professional site engineering, construction support, and project coordination services in Auckland, New Zealand." />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="css/style.css">
-</head>
 
-<script>
-document.addEventListener("DOMContentLoaded", function () {
+  <link rel="stylesheet" href="css/style.css" />
 
-  const slides = document.querySelectorAll('.service-slide');
-  const dotsContainer = document.querySelector('.slider-dots');
-  const prev = document.querySelector('.slide-arrow.left');
-  const next = document.querySelector('.slide-arrow.right');
+  <!-- Smooth scroll for internal links (optional but nice) -->
+  <style>
+    html { scroll-behavior: smooth; }
+  </style>
 
-  let current = 0;
+  <!-- Slider script -->
+  <script defer>
+    document.addEventListener("DOMContentLoaded", function () {
+      const slides = document.querySelectorAll(".service-slide");
+      const dotsContainer = document.querySelector(".slider-dots");
+      const prev = document.querySelector(".slide-arrow.left");
+      const next = document.querySelector(".slide-arrow.right");
 
-  function showSlide(index) {
-    slides.forEach((slide, i) => {
-      slide.classList.toggle('active', i === index);
-      dotsContainer.children[i].classList.toggle('active', i === index);
+      if (!slides.length || !dotsContainer || !prev || !next) return;
+
+      let current = 0;
+
+      function showSlide(index) {
+        slides.forEach((slide, i) => {
+          slide.classList.toggle("active", i === index);
+        });
+
+        Array.from(dotsContainer.children).forEach((dot, i) => {
+          dot.classList.toggle("active", i === index);
+          dot.setAttribute("aria-current", i === index ? "true" : "false");
+        });
+
+        current = index;
+      }
+
+      // Build dots
+      slides.forEach((_, i) => {
+        const dot = document.createElement("button");
+        dot.type = "button";
+        dot.className = "dot";
+        dot.setAttribute("aria-label", `Go to service ${i + 1}`);
+        dot.addEventListener("click", () => showSlide(i));
+        dotsContainer.appendChild(dot);
+      });
+
+      prev.addEventListener("click", () => {
+        showSlide((current - 1 + slides.length) % slides.length);
+      });
+
+      next.addEventListener("click", () => {
+        showSlide((current + 1) % slides.length);
+      });
+
+      // Optional: keyboard support
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowLeft") prev.click();
+        if (e.key === "ArrowRight") next.click();
+      });
+
+      showSlide(0);
     });
-    current = index;
-  }
-
-  slides.forEach((_, i) => {
-    const dot = document.createElement('span');
-    dot.addEventListener('click', () => showSlide(i));
-    dotsContainer.appendChild(dot);
-  });
-
-  prev.addEventListener('click', () => {
-    showSlide((current - 1 + slides.length) % slides.length);
-  });
-
-  next.addEventListener('click', () => {
-    showSlide((current + 1) % slides.length);
-  });
-
-  showSlide(0);
-
-});
-</script>
+  </script>
+</head>
 
 <body>
 
-<header class="site-header">
-  <nav class="nav container">
-    <div class="logo"></div>
-    <ul class="nav-links">
-  <li class="dropdown">
-    <a href="#">Menu</a>
+  <header class="site-header">
+    <nav class="nav container" aria-label="Primary">
+      <a class="logo" href="/" aria-label="On-Site Engineering Home">
+        <!-- If you want text logo instead of blank div, put text here -->
+        <!-- On-Site Engineering -->
+      </a>
 
-    <ul class="dropdown-menu">
-      <li><a href="/">Home</a></li>
-      <li><a href="#about">About Me</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="projects.html">Portfolio</a></li>
-      <li><a href="contact.html">Contact Me</a></li>
-    </ul>
-  </li>
-</ul>
+      <ul class="nav-links">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">Menu</a>
 
-  </nav>
-</header>
+          <ul class="dropdown-menu" aria-label="Menu">
+            <li><a href="/">Home</a></li>
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="projects.html">Portfolio</a></li>
+            <li><a href="contact.html">Contact Me</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </header>
 
-<main>
-<section class="hero-banner">
-  <div class="hero-inner container">
+  <main>
 
-    <!-- LEFT SIDE -->
-    <div class="hero-left">
-      <img
-        src="images/logo.png"
-        alt="On-Site Engineering Logo"
-        class="hero-logo"
-      />
+    <section class="hero-banner" id="home">
+      <div class="hero-inner container">
 
-      <h1>
-        <span class="highlight">On-Site</span> Engineering
-      </h1>
+        <!-- LEFT -->
+        <div class="hero-left">
+          <img
+            src="images/logo.png"
+            alt="On-Site Engineering Logo"
+            class="hero-logo"
+            loading="eager"
+          />
 
-      <p class="hero-tagline">Precision in Every Project</p>
+          <h1><span class="highlight">On-Site</span> Engineering</h1>
 
-      <a href="contact.html" class="hero-button">Contact Now</a>
-    </div>
+          <p class="hero-tagline">Precision in Every Project</p>
 
-    <!-- RIGHT SIDE -->
-    <div class="hero-right">
-      <p>
-        Providing hands-on site engineering, quality, and coordination support
-        to keep complex construction projects moving safely and efficiently.
-      </p>
-    </div>
-  </div>
-
-  <div class="hero-arrow">&#10094;</div>
-
-</section>
-
-  <section class="about-us" id="about">
-  <div class="container about-inner">
-
-    <div class="about-text">
-      <h2>About <span class="highlight-word">Us</span></h2>
-
-      <p>
-        On-Site Engineering provides hands-on site engineering, quality control,
-        and construction support services across commercial and residential
-        projects.
-      </p>
-
-      <p>
-        We focus on ensuring works are built correctly, documented accurately,
-        and delivered efficiently — reducing risk, rework, and delays on site.
-      </p>
-    </div>
-
-    <div class="about-image">
-      <img src="images/about.jpg" alt="Construction site engineering work">
-    </div>
-
-  </div>
-</section>
-
-<section class="services" id="services">
-  <div class="container">
-
-    <h2 class="services-heading">Services</h2>
-
-    <div class="services-slider">
-
-      <button class="slide-arrow left">&#10094;</button>
-
-      <div class="slides">
-
-        <!-- SLIDE 1 -->
-        <div class="service-slide active">
-          <div class="service-content">
-            <div class="service-image">
-              <img src="images/service-supervision.jpg" alt="Site Supervision">
-            </div>
-            <div class="service-text">
-              <h3>Site Supervision & Technical Support</h3>
-              <p>
-                Hands-on site supervision to ensure works are built right the first time,
-                with clear technical guidance and fast resolution of on-site issues.
-              </p>
-              <ul>
-                <li>Verification against drawings and specifications</li>
-                <li>Technical support for contractors</li>
-                <li>Early identification of buildability challenges</li>
-                <li>Stakeholder coordination</li>
-                <li>Ongoing quality and safety support</li>
-              </ul>
-            </div>
-          </div>
+          <a href="contact.html" class="hero-button">Contact Now</a>
         </div>
 
-        <!-- SLIDE 2 -->
-        <div class="service-slide">
-          <div class="service-content">
-            <div class="service-image">
-              <img src="images/service-quality.jpg" alt="Quality Control">
-            </div>
-            <div class="service-text">
-              <h3>Quality Control & Inspections</h3>
-              <p>
-                Proactive inspections and quality checks to prevent defects,
-                reduce rework, and maintain compliance.
-              </p>
-              <ul>
-                <li>Inspection and Test Plans (ITPs)</li>
-                <li>Identification of quality risks</li>
-                <li>Non-conformance management</li>
-                <li>Documentation and certification support</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <!-- SLIDE 3 -->
-        <div class="service-slide">
-          <div class="service-content">
-            <div class="service-image">
-              <img src="images/service-coordination.jpg" alt="Services Coordination">
-            </div>
-            <div class="service-text">
-              <h3>Building Services Co-ordination</h3>
-              <p>
-                Ensuring services are integrated efficiently to support smooth installation
-                and coordinated sequencing across trades.
-              </p>
-              <ul>
-                <li>Services layout review</li>
-                <li>Clash detection and resolution</li>
-                <li>Shop drawing support</li>
-                <li>Installation sequencing coordination</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <!-- SLIDE 4 -->
-        <div class="service-slide">
-          <div class="service-content">
-            <div class="service-image">
-              <img src="images/service-qaqc.jpg" alt="QA QC">
-            </div>
-            <div class="service-text">
-              <h3>Quality Management (QA/QC)</h3>
-              <p>
-                Structured systems and defect management to maintain accountability
-                and project confidence.
-              </p>
-              <ul>
-                <li>QA/QC plan development</li>
-                <li>Inspection management</li>
-                <li>Defect tracking</li>
-                <li>Audit and handover support</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <!-- SLIDE 5 -->
-        <div class="service-slide">
-          <div class="service-content">
-            <div class="service-image">
-              <img src="images/service-admin.jpg" alt="Administrative Support">
-            </div>
-            <div class="service-text">
-              <h3>Administrative Support & Site Management</h3>
-              <p>
-                Integrated administration and document control to keep communication
-                organised and projects on track.
-              </p>
-              <ul>
-                <li>Document control and registers</li>
-                <li>Meeting coordination</li>
-                <li>Tracking approvals and responses</li>
-                <li>Handover documentation support</li>
-              </ul>
-            </div>
-          </div>
+        <!-- RIGHT -->
+        <div class="hero-right">
+          <p>
+            Providing hands-on site engineering, quality, and coordination support
+            to keep complex construction projects moving safely and efficiently.
+          </p>
         </div>
 
       </div>
 
-      <button class="slide-arrow right">&#10095;</button>
+      <!-- Scroll cue -->
+      <a class="hero-arrow" href="#about" aria-label="Scroll to About section">↓</a>
+    </section>
 
-    </div>
+    <section class="about-us" id="about">
+      <div class="container about-inner">
 
-    <div class="slider-dots"></div>
+        <div class="about-text">
+          <h2>About <span class="highlight-word">Us</span></h2>
 
-  </div>
-</section>
+          <p>
+            On-Site Engineering provides hands-on site engineering, quality control,
+            and construction support services across commercial and residential projects.
+          </p>
 
-  
-</main>
+          <p>
+            We focus on ensuring works are built correctly, documented accurately,
+            and delivered efficiently — reducing risk, rework, and delays on site.
+          </p>
+        </div>
 
-<footer class="site-footer">
-  <p>© 2026 Atique Taib</p>
-</footer>
+        <div class="about-image">
+          <img src="images/about.jpg" alt="Construction site engineering work" loading="lazy" />
+        </div>
+
+      </div>
+    </section>
+
+    <section class="services" id="services">
+      <div class="container">
+
+        <h2 class="services-heading">Services</h2>
+
+        <div class="services-slider" aria-label="Services slider">
+
+          <button class="slide-arrow left" type="button" aria-label="Previous service">‹</button>
+
+          <div class="slides">
+
+            <!-- SLIDE 1 -->
+            <div class="service-slide active">
+              <div class="service-content">
+                <div class="service-image">
+                  <img src="images/service-supervision.jpg" alt="Site Supervision" loading="lazy" />
+                </div>
+                <div class="service-text">
+                  <h3>Site Supervision &amp; Technical Support</h3>
+                  <p>
+                    Hands-on site supervision to ensure works are built right the first time,
+                    with clear technical guidance and fast resolution of on-site issues.
+                  </p>
+                  <ul>
+                    <li>Verification against drawings and specifications</li>
+                    <li>Technical support for contractors</li>
+                    <li>Early identification of buildability challenges</li>
+                    <li>Stakeholder coordination</li>
+                    <li>Ongoing quality and safety support</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- SLIDE 2 -->
+            <div class="service-slide">
+              <div class="service-content">
+                <div class="service-image">
+                  <img src="images/service-quality.jpg" alt="Quality Control" loading="lazy" />
+                </div>
+                <div class="service-text">
+                  <h3>Quality Control &amp; Inspections</h3>
+                  <p>
+                    Proactive inspections and quality checks to prevent defects,
+                    reduce rework, and maintain compliance.
+                  </p>
+                  <ul>
+                    <li>Inspection and Test Plans (ITPs)</li>
+                    <li>Identification of quality risks</li>
+                    <li>Non-conformance management</li>
+                    <li>Documentation and certification support</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- SLIDE 3 -->
+            <div class="service-slide">
+              <div class="service-content">
+                <div class="service-image">
+                  <img src="images/service-coordination.jpg" alt="Services Coordination" loading="lazy" />
+                </div>
+                <div class="service-text">
+                  <h3>Building Services Co-ordination</h3>
+                  <p>
+                    Ensuring services are integrated efficiently to support smooth installation
+                    and coordinated sequencing across trades.
+                  </p>
+                  <ul>
+                    <li>Services layout review</li>
+                    <li>Clash detection and resolution</li>
+                    <li>Shop drawing support</li>
+                    <li>Installation sequencing coordination</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- SLIDE 4 -->
+            <div class="service-slide">
+              <div class="service-content">
+                <div class="service-image">
+                  <img src="images/service-qaqc.jpg" alt="QA QC" loading="lazy" />
+                </div>
+                <div class="service-text">
+                  <h3>Quality Management (QA/QC)</h3>
+                  <p>
+                    Structured systems and defect management to maintain accountability
+                    and project confidence.
+                  </p>
+                  <ul>
+                    <li>QA/QC plan development</li>
+                    <li>Inspection management</li>
+                    <li>Defect tracking</li>
+                    <li>Audit and handover support</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- SLIDE 5 -->
+            <div class="service-slide">
+              <div class="service-content">
+                <div class="service-image">
+                  <img src="images/service-admin.jpg" alt="Administrative Support" loading="lazy" />
+                </div>
+                <div class="service-text">
+                  <h3>Administrative Support &amp; Site Management</h3>
+                  <p>
+                    Integrated administration and document control to keep communication
+                    organised and projects on track.
+                  </p>
+                  <ul>
+                    <li>Document control and registers</li>
+                    <li>Meeting coordination</li>
+                    <li>Tracking approvals and responses</li>
+                    <li>Handover documentation support</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <button class="slide-arrow right" type="button" aria-label="Next service">›</button>
+
+        </div>
+
+        <div class="slider-dots" aria-label="Service slide navigation"></div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 Atique Taib</p>
+  </footer>
 
 </body>
 </html>
-
-
