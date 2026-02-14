@@ -55,7 +55,7 @@ p, li, a, button {
 html { scroll-behavior: smooth; }
 
 body {
-  font-family: "Segoe UI", Arial, sans-serif;
+  font-family: var(--font-body, "Inter", sans-serif);
   line-height: 1.7;
   color: var(--text-dark);
   background-color: #ffffff;
@@ -286,7 +286,7 @@ ul { margin: 0; padding: 0; }
   line-height: 1.5;
   color: #e9eef4;
 
-  max-width: 56ch;   /* tune this number to force 2 lines */
+  max-width: 70ch;   /* tune this number to force 2 lines */
   margin: 0;         /* prevent extra spacing */
 }
 
@@ -413,6 +413,40 @@ ul { margin: 0; padding: 0; }
   border-radius: 16px;
   object-fit: cover;
   aspect-ratio: 4 / 3;
+}
+
+.service-image{
+  position: relative;
+  margin-top: 18px; /* shifts image down */
+}
+
+.service-title-overlay{
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  right: 14px;
+  z-index: 2;
+
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 1.15rem;
+
+  white-space: nowrap;      /* keeps it one line */
+  overflow: hidden;
+  text-overflow: ellipsis;  /* clean truncation if needed */
+}
+
+.service-image::before{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  top:0;
+  height: 56px;
+  border-radius: 16px 16px 0 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.45), rgba(0,0,0,0));
+  z-index:1;
+  pointer-events:none;
 }
 
 .service-text h3 {
