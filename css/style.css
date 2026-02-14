@@ -17,24 +17,34 @@
 
   --container: 1200px;
 }
-
 /* =========================
    Font Presets (toggle on <body>)
    ========================= */
 
-/* Default fallbacks (if no class set) */
 body { font-family: "Inter", "Segoe UI", Arial, sans-serif; }
 
-body.font-1 { --hero-h: "Poppins", sans-serif;        --hero-p: "Inter", sans-serif; }
-body.font-2 { --hero-h: "Montserrat", sans-serif;     --hero-p: "Source Sans 3", sans-serif; }
-body.font-3 { --hero-h: "Raleway", sans-serif;        --hero-p: "Nunito Sans", sans-serif; }
-body.font-4 { --hero-h: "Playfair Display", serif;    --hero-p: "Inter", sans-serif; }
+/* Preset 4 = the font you like (Playfair for headings + Inter for body) */
+body.font-4 {
+  --font-body: "Inter", "Segoe UI", Arial, sans-serif;
+  --font-head: "Playfair Display", serif;
+}
 
-/* Apply fonts to hero only */
-.hero-left h1 { font-family: var(--hero-h); }
-.hero-right p { font-family: var(--hero-p); }
-.hero-tagline { font-family: var(--hero-p); }
+/* (Optional) keep other presets if you want */
+body.font-1 { --font-body: "Inter", sans-serif; --font-head: "Poppins", sans-serif; }
+body.font-2 { --font-body: "Source Sans 3", sans-serif; --font-head: "Montserrat", sans-serif; }
+body.font-3 { --font-body: "Nunito Sans", sans-serif; --font-head: "Raleway", sans-serif; }
 
+/* Apply site-wide */
+body { font-family: var(--font-body, "Inter", sans-serif); }
+
+h1, h2, h3 {
+  font-family: var(--font-head, "Inter", sans-serif);
+}
+
+/* Optional: make normal text consistent */
+p, li, a, button {
+  font-family: var(--font-body, "Inter", sans-serif);
+}
 
 /* =========================
    Reset & Base
@@ -268,14 +278,16 @@ ul { margin: 0; padding: 0; }
 
 /* RIGHT */
 .hero-right {
-  max-width: 700px;
-  padding-left: 60px;
+  padding-left: 60px; /* keep position the same */
 }
 
 .hero-right p {
   font-size: 1.05rem;
-  line-height: 1.5; /* slightly tighter */
+  line-height: 1.5;
   color: #e9eef4;
+
+  max-width: 56ch;   /* tune this number to force 2 lines */
+  margin: 0;         /* prevent extra spacing */
 }
 
 /* =========================
