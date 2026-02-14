@@ -236,26 +236,6 @@ ul { margin: 0; padding: 0; }
   color: #e9eef4;
 }
 
-/* Scroll cue arrow */
-.hero-arrow {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: 26px;
-  font-size: 26px;
-  color: rgba(255,255,255,0.75);
-  text-decoration: none;
-  animation: bounce 2s infinite;
-  z-index: 20;
-}
-
-.hero-arrow:hover { opacity: 0.9; }
-
-@keyframes bounce {
-  0%, 100% { transform: translateX(-50%) translateY(0); }
-  50%      { transform: translateX(-50%) translateY(8px); }
-}
-
 /* =========================
    Entrance Animations
    ========================= */
