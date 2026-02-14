@@ -178,9 +178,9 @@ ul { margin: 0; padding: 0; }
 
 .hero-inner {
   display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
+  grid-template-columns: 1.4fr 0.6fr; /* push right column further right */
   align-items: center;
-  gap: 70px;
+  gap: 40px;
 }
 
 /* LEFT */
@@ -227,13 +227,14 @@ ul { margin: 0; padding: 0; }
 /* RIGHT */
 .hero-right {
   max-width: 520px;
-  padding-left: 10px;
+  padding-left: 60px;
 }
 
 .hero-right p {
   font-size: 1.05rem;
-  line-height: 1.75;
+  line-height: 1.55; /* slightly tighter */
   color: #e9eef4;
+  max-width: 380px; /* controls wrapping */
 }
 
 /* =========================
