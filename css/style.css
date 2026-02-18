@@ -707,3 +707,101 @@ ul { margin: 0; padding: 0; }
   .project-description{ max-width: 92%; }
 }
 
+/* =========================
+   Contact Section (Get in Touch)
+   ========================= */
+
+.contact{
+  background: #ffffff;
+  padding: 90px 0 110px;
+}
+
+.contact-inner{
+  max-width: 980px;
+}
+
+.contact-head{
+  text-align: left;
+  margin-bottom: 26px;
+}
+
+.contact-title{
+  font-size: clamp(2.4rem, 4.8vw, 3.2rem);
+  color: var(--accent);
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.contact-subtitle{
+  margin-top: 0;
+  color: #111;
+  font-weight: 600;
+}
+
+.contact-form{
+  max-width: 720px;
+  margin: 0 auto; /* centers the form like your screenshot */
+}
+
+.form-row{
+  margin-top: 18px;
+}
+
+.two-col{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.field label{
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+.req{ color: var(--accent); }
+
+.field input,
+.field textarea{
+  width: 100%;
+  border: 1px solid #111;
+  padding: 12px 12px;
+  font-size: 1rem;
+  outline: none;
+  border-radius: 2px; /* keeps it crisp like screenshot */
+  font-family: var(--font-body, "Inter", sans-serif);
+}
+
+.field textarea{
+  resize: vertical;
+  min-height: 130px;
+}
+
+.contact-submit{
+  width: 100%;
+  margin-top: 22px;
+  height: 44px;
+  border: none;
+  background: #0a6ed1; /* matches your screenshot blue */
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+.contact-submit:hover{ opacity: 0.95; }
+
+/* Responsive */
+@media (max-width: 700px){
+  .two-col{
+    grid-template-columns: 1fr;
+  }
+  .contact-head{
+    text-align: left;
+  }
+  .contact-form{
+    max-width: 92%;
+  }
+}
