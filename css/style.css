@@ -388,6 +388,11 @@ ul { margin: 0; padding: 0; }
   gap: 16px;
 }
 
+.service-text .amp{
+  font-family: var(--font-body, "Inter", sans-serif);
+  font-weight: 800;
+}
+
 /* Slides */
 .slides {
   width: 100%;
@@ -406,6 +411,7 @@ ul { margin: 0; padding: 0; }
   grid-template-columns: 0.95fr 1.05fr;
   gap: 52px;
   box-shadow: var(--shadow);
+  align-items: center;
 }
 
 .service-image img {
@@ -417,7 +423,9 @@ ul { margin: 0; padding: 0; }
 
 .service-image{
   position: relative;
-  margin-top: 18px; /* shifts image down */
+  align-self: center;         /* ensures it centers in the grid row */
+  transform: translateY(10px);/* shifts it down a bit */
+  margin-top: 0;              /* remove old push so it doesn’t fight centering */
 }
 
 .service-title-overlay{
