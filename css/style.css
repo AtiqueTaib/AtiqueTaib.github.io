@@ -436,6 +436,9 @@ ul { margin: 0; padding: 0; }
   text-overflow: ellipsis;  /* clean truncation if needed */
 }
 
+.service-title-overlay { display: none; }
+.service-image::before { display: none; }
+
 .service-image::before{
   content:"";
   position:absolute;
