@@ -209,7 +209,7 @@ ul { margin: 0; padding: 0; }
   max-width: 1400px;
   margin-left: 0;
   margin-right: auto;
-  padding-left: 90px;   /* adjust this value to fine-tune position */
+  padding-left: 150px;   /* adjust this value to fine-tune position */
   padding-right: 28px;
 }
 
@@ -286,7 +286,7 @@ ul { margin: 0; padding: 0; }
   line-height: 1.5;
   color: #e9eef4;
 
-  max-width: 70ch;   /* tune this number to force 2 lines */
+  max-width: 48ch;   /* tune this number to force 2 lines */
   margin: 0;         /* prevent extra spacing */
 }
 
