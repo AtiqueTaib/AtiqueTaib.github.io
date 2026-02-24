@@ -184,11 +184,22 @@ ul { margin: 0; padding: 0; }
   background-color: #f2f6fb;
 }
 
-/* Hover trigger */
-.dropdown:hover .dropdown-menu {
+/* Click/tap trigger */
+.dropdown.open .dropdown-menu {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
+}
+
+.dropdown-toggle{
+  background: none;
+  border: none;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
 }
 
 /* =========================
