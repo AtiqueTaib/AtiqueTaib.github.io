@@ -71,6 +71,47 @@
       showSlide(0);
     });
   </script>
+
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const dropdown = document.querySelector(".dropdown");
+    const toggle = document.querySelector(".dropdown-toggle");
+    const menu = document.querySelector(".dropdown-menu");
+
+    if (!dropdown || !toggle || !menu) return;
+
+    // Toggle open/close on click
+    toggle.addEventListener("click", (e) => {
+      e.preventDefault();
+      const isOpen = dropdown.classList.toggle("open");
+      toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    });
+
+    // Close when clicking outside
+    document.addEventListener("click", (e) => {
+      if (!dropdown.contains(e.target)) {
+        dropdown.classList.remove("open");
+        toggle.setAttribute("aria-expanded", "false");
+      }
+    });
+
+    // Close on Escape
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        dropdown.classList.remove("open");
+        toggle.setAttribute("aria-expanded", "false");
+      }
+    });
+
+    // Close after clicking a menu link (and allow scroll)
+    menu.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        dropdown.classList.remove("open");
+        toggle.setAttribute("aria-expanded", "false");
+      });
+    });
+  });
+</script>
 </head>
 
 <body class="font-4">
@@ -84,14 +125,16 @@
 
       <ul class="nav-links">
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">Menu</a>
+          <button class="dropdown-toggle" type="button" aria-haspopup="true" aria-expanded="false">
+           Menu
+          </button>
 
           <ul class="dropdown-menu" aria-label="Menu">
             <li><a href="/">Home</a></li>
-            <li><a href="#about">About Me</a></li>
+            <li><a href="#about">About</a></li>
             <li><a href="#services">Services</a></li>
             <li><a href="projects.html">Projects</a></li>
-            <li><a href="contact.html">Contact Me</a></li>
+            <li><a href="contact.html">Contact</a></li>
           </ul>
         </li>
       </ul>
