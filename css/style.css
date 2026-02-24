@@ -204,20 +204,20 @@ ul { margin: 0; padding: 0; }
   overflow: hidden;
 }
 
-/* Hero-only container alignment (Wix-style left anchor) */
+/* Hero content aligned with site containers */
 .hero-banner .container{
-  max-width: 1400px;
-  margin-left: 0;
-  margin-right: auto;
-  padding-left: 150px;   /* adjust this value to fine-tune position */
-  padding-right: 28px;
+  max-width: var(--container);   /* same width as other sections */
+  margin: 0 auto;                /* center it */
+  padding: 0 28px;               /* match your .container padding */
 }
+
 
 .hero-inner {
   display: grid;
   grid-template-columns: 1.4fr 0.6fr; /* push right column further right */
   align-items: center;
   gap: 40px;
+  padding-left: 40px; 
 }
 
 /* LEFT */
@@ -286,7 +286,7 @@ ul { margin: 0; padding: 0; }
   line-height: 1.5;
   color: #e9eef4;
 
-  max-width: 48ch;   /* tune this number to force 2 lines */
+  max-width: 44ch;   /* tune this number to force 2 lines */
   margin: 0;         /* prevent extra spacing */
 }
 
